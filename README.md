@@ -2,6 +2,8 @@
 
 First User Story:
 
-- As a user, 
-- So that i can see my bookmarks, 
-- I want the website to show the list of all Bookmarks
+```
+As a user, 
+So that i can quickly access my favourite websites, 
+I want the website to show the list of all Bookmarks
+```
