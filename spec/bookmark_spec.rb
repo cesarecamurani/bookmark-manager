@@ -2,10 +2,17 @@ require 'bookmark'
 
 describe Bookmark do
 
-  describe '.list_list' do
-    it "Shows a list of bookmarks" do
-      expect(described_class.list_all).to eq Bookmark::BOOKMARKS
+  it { expect(described_class).to respond_to :list_all }
+
+  describe '.list_all' do
+    it 'returns all bookmarks' do
+      bookmarks = Bookmark.list_all
+      expect(bookmarks).to include("https://www.google.co.uk/")
+      expect(bookmarks).to include("https://it.wikipedia.org/")
+      expect(bookmarks).to include("https://www.cb01.news/")
     end
   end
+
+
 
 end

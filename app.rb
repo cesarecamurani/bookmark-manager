@@ -4,11 +4,12 @@ require './lib/bookmark'
 class Controller < Sinatra::Base
 
   get '/' do
-    "Cesare"
+    @bookmarks = Bookmark.list_all
+    erb :bookmarks
   end
 
   get '/bookmarks' do
-    Bookmark.list_all
+    @bookmarks = Bookmark.list_all
     erb :bookmarks
   end
 
