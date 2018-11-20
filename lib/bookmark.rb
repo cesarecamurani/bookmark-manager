@@ -2,11 +2,9 @@ class Bookmark
 
   def self.list_all
     begin
-      con = PG.connect :dbname => 'bookmark_manager'
-      rs = con.exec "SELECT * FROM bookmarks"
-      rs.each do |row|
-        puts "%s %s" % [ row['id'], row['url'] ]
-      end
+      connection = PG.connect :dbname => 'bookmark_manager'
+      result = connection.exec "SELECT * FROM bookmarks;"
+      result.map { |bookmark| bookmark['url'] }
     end
   end
 
