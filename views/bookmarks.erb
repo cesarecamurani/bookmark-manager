@@ -5,10 +5,11 @@
     <title></title>
   </head>
   <body>
-
     <center><h1>Bookmarks:</h1></center>
-    <center><h2><%=@bookmarks.each { |bookmark| puts bookmark }%></h2></center>
-
-
+    <ul>
+      <% @bookmarks.each do |bookmark| %>
+      <li><a href="<%= bookmark %>"></li>
+      <% end %>
+    </ul>
   </body>
 </html>

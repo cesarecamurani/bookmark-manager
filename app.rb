@@ -1,10 +1,11 @@
 require 'sinatra/base'
 require './lib/bookmark'
+require 'pg'
 
 class Controller < Sinatra::Base
 
   get '/' do
-    @bookmarks = Bookmark.list_all
+    redirect '/bookmarks'
     erb :bookmarks
   end
 
