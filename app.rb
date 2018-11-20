@@ -5,8 +5,7 @@ require 'pg'
 class Controller < Sinatra::Base
 
   get '/' do
-    redirect '/bookmarks'
-    erb :bookmarks
+    erb :index
   end
 
   get '/bookmarks' do

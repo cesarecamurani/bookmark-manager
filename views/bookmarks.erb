@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
+
   <body>
     <center><h1>Bookmarks:</h1></center>
     <ul>
       <% @bookmarks.each do |bookmark| %>
-      <li> <%= bookmark %> </li>
+      <li> <a href="<%= bookmark %>"> <%= bookmark %> </a></li>
       <% end %>
     </ul>
   </body>

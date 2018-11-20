@@ -5,6 +5,8 @@ feature '.list_all' do
     expect(page).to have_content("Bookmarks:")
     expect(page).to have_content("http://www.makersacademy.com")
     expect(page).to have_content("http://www.destroyallsoftware.com")
-    expect(page).to have_content("http://www.google.com")
+    expect(page).to have_content("https://www.visitfaroeislands.com")
+    expect(page).to have_content("https://www.make.fo")
+    expect(page).to have_content("https://store.steampowered.com")
   end
 end
