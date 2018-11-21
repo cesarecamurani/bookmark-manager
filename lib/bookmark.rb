@@ -1,6 +1,7 @@
 require 'pg'
 
 class Bookmark
+  attr_reader :url
 
   def self.list_all
 
@@ -15,17 +16,26 @@ class Bookmark
 
   end
 
+  def self.create(url:)
+
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect :dbname => 'bookmark_manager_test'
+    else
+      connection = PG.connect :dbname => 'bookmark_manager'
+    end
+
+    connection.exec "INSERT INTO bookmarks (url) VALUES('#{url}');"
+  end
+
+  # def self.delete(url:)
+  #
+  #   if ENV['ENVIRONMENT'] == 'test'
+  #     connection = PG.connect :dbname => 'bookmark_manager_test'
+  #   else
+  #     connection = PG.connect :dbname => 'bookmark_manager'
+  #   end
+  #
+  #   connection.exec "DELETE FROM bookmarks WHERE bookmarks.url = #{url};"
+  # end
+
 end
-
-
-
-
-# class Bookmark
-#
-#   def self.list_all
-#     [ "https://www.google.co.uk/",
-#       "https://it.wikipedia.org/",
-#       "https://www.cb01.news/" ]
-#   end
-#
-# end

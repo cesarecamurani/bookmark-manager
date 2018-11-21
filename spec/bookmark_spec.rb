@@ -26,4 +26,29 @@ describe Bookmark do
     end
   end
 
+  describe '.create' do
+    it 'Adds a bookmark' do
+
+      Bookmark.create(url: "https://tfl.gov.uk/")
+      Bookmark.create(url: "https://www.chess.com/it/learn")
+
+      expect(Bookmark.list_all).to include("https://tfl.gov.uk/")
+      expect(Bookmark.list_all).to include("https://www.chess.com/it/learn")
+
+    end
+  end
+
+  # describe '.delete' do
+  #   it 'Deletes a bookmark' do
+  #
+  #     Bookmark.delete(url: "https://tfl.gov.uk/")
+  #     Bookmark.delete(url: "https://www.chess.com/it/learn")
+  #
+  #     expect(Bookmark.list_all).not_to include("https://tfl.gov.uk/")
+  #     expect(Bookmark.list_all).not_to include("https://www.chess.com/it/learn")
+  #
+  #   end
+  # end
+
+
 end

@@ -19,4 +19,32 @@ feature '.list_all' do
     expect(page).to have_content("https://www.make.fo")
     expect(page).to have_content("https://store.steampowered.com")
   end
+
+  feature '.add_bookmark' do
+    scenario "Adds websites to the bookmarks database" do
+
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+
+      visit '/'
+      click_link 'Bookmark Page'
+      fill_in('url', with: 'https://tfl.gov.uk/')
+      click_button 'Add Bookmark'
+      expect(page).to have_content('https://tfl.gov.uk/')
+    end
+  end
+
+  # feature '.delete_bookmark' do
+  #   scenario "Deletes websites to the bookmarks database" do
+  #
+  #     connection = PG.connect(dbname: 'bookmark_manager_test')
+  #
+  #     visit '/'
+  #     click_link 'Bookmark Page'
+  #     fill_in('add', with: 'https://tfl.gov.uk/')
+  #     click_button 'Add Bookmark'
+  #     fill_in('delete', with: 'https://tfl.gov.uk/')
+  #     click_button 'Delete Bookmark'
+  #     expect(page).not_to have_content('https://tfl.gov.uk/')
+  #   end
+  # end
 end

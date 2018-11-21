@@ -13,5 +13,17 @@ class Controller < Sinatra::Base
     erb :bookmarks
   end
 
+  post '/bookmarks' do
+    @bookmarks = Bookmark.list_all
+    Bookmark.create(url: params[:url])
+    redirect '/bookmarks'
+  end
+
+  # post '/bookmarks' do
+  #   @bookmarks = Bookmark.list_all
+  #   Bookmark.delete(url: params[:url])
+  #   redirect '/bookmarks'
+  # end
+
   run! if app_file == $0
 end
