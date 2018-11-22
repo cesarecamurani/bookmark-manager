@@ -13,15 +13,14 @@ class Controller < Sinatra::Base
     erb :bookmarks
   end
 
-  post '/bookmarks' do
-    @bookmarks = Bookmark.list_all
-    Bookmark.create(url: params[:url])
+  post '/data' do
+    Bookmark.create(url: params[:url], title: params[:title])
     redirect '/bookmarks'
   end
 
   # post '/bookmarks' do
   #   @bookmarks = Bookmark.list_all
-  #   Bookmark.delete(url: params[:url])
+  #   Bookmark.delete(url: params[:del_url])
   #   redirect '/bookmarks'
   # end
 

@@ -10,19 +10,16 @@
     <h1>Bookmarks:</h1>
     <ul>
       <% @bookmarks.each do |bookmark| %>
-      <li> <a href="<%= bookmark %>"> <%= bookmark %> </a></li>
+      <li> <a href="<%= bookmark.url %>"> <%= bookmark.title %> </a></li>
       <% end %>
     </ul><br><br>
-    <form action="/bookmarks" method="post">
-      <h2><font face="century gothic"> Add Bookmark: </font></h2>
+    <form action="/data" method="post">
+      <h2><font face="century gothic"> Add URL: </font></h2>
       <input type="text" font="century gothic" name="url">
+      <h2><font face="century gothic"> Add Title: </font></h2>
+      <input type="text" font="century gothic" name="title">
+      <br><br>
       <input type="submit" font="century gothic" value="Add Bookmark">
     </form>
-    <br><br>
-    <!-- <form action="/bookmarks" method="post">
-      <h2><font face="century gothic"> Delete Bookmark: </font></h2>
-      <input type="text" font="century gothic" name="del_url">
-      <input type="submit" font="century gothic" value="Delete Bookmark">
-    </form> -->
   </body>
 </html>
