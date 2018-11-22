@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
-
   <body bgcolor="lightgreen">
     <h1>Bookmarks:</h1>
     <ul>
       <% @bookmarks.each do |bookmark| %>
-      <li> <a href="<%= bookmark.url %>"> <%= bookmark.title %> </a></li>
+      <li class="bookmark" id="bookmark-<%= bookmark.id %>">
+        <a href="<%= bookmark.url %>" target="_blank"> <%= bookmark.title %> </a>
+        <form action="/bookmarks/<%= bookmark.id %>" method="post">
+          <input type='hidden' name='_method' value='DELETE'/>
+          <input type="submit" value="Delete" />
+        </form>
+      </li>
       <% end %>
-    </ul><br><br>
-    <form action="/data" method="post">
-      <h2><font face="century gothic"> Add URL: </font></h2>
-      <input type="text" font="century gothic" name="url">
-      <h2><font face="century gothic"> Add Title: </font></h2>
-      <input type="text" font="century gothic" name="title">
-      <br><br>
-      <input type="submit" font="century gothic" value="Add Bookmark">
-    </form>
+    </ul>
+    <br>
+
+      <form action="/bookmarks" method="post">
+        <h2><font face="century gothic"> Add URL: </font></h2>
+        <input type="text" font="century gothic" name="url">
+        <h2><font face="century gothic"> Add Title: </font></h2>
+        <input type="text" font="century gothic" name="title">
+        <br><br>
+        <input type="submit" font="century gothic" value="Add Bookmark">
+      </form>
+
   </body>
 </html>

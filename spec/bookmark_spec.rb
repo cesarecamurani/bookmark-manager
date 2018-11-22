@@ -28,27 +28,26 @@ describe Bookmark do
   describe '.create' do
     it 'Adds a bookmark' do
 
-      bookmark = Bookmark.create(url: "https://tfl.gov.uk/", title: "Transport for London")
+      bookmark = Bookmark.create(url: "https://tfl.gov.uk/", title: "TFL")
       bookmark_bis = Bookmark.create(url: "https://www.chess.com/it/learn", title: "Chess.com")
 
       expect(bookmark.url).to eq("https://tfl.gov.uk/")
-      expect(bookmark.title).to eq("Transport for London")
+      expect(bookmark.title).to eq("TFL")
       expect(bookmark_bis.url).to eq("https://www.chess.com/it/learn")
       expect(bookmark_bis.title).to eq ("Chess.com")
     end
   end
 
-  # describe '.delete' do
-  #   it 'Deletes a bookmark' do
-  #
-  #     Bookmark.delete(url: "https://tfl.gov.uk/")
-  #     Bookmark.delete(url: "https://www.chess.com/it/learn")
-  #
-  #     expect(Bookmark.list_all).not_to include("https://tfl.gov.uk/")
-  #     expect(Bookmark.list_all).not_to include("https://www.chess.com/it/learn")
-  #
-  #   end
-  # end
+  describe '.delete' do
+    it 'Deletes a bookmark' do
 
+      bookmark = Bookmark.create(title: 'Makers', url: 'http://www.makersacademy.com')
+
+      Bookmark.delete(id: bookmark.id)
+
+      expect(Bookmark.list_all.length).to eq 0
+
+    end
+  end
 
 end

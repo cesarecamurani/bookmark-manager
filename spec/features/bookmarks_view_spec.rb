@@ -14,35 +14,33 @@ feature '.list_all' do
     expect(page).to have_link("Destroy", href: "http://www.destroyallsoftware.com")
     expect(page).to have_link("Visit Faroe", href: "https://www.visitfaroeislands.com")
     expect(page).to have_link("Steam", href: "https://store.steampowered.com")
-  end
 
-  feature '.add_bookmark' do
+  end
+end
+
+  feature '.create' do
     scenario "Adds websites to the bookmarks database" do
 
       connection = PG.connect(dbname: 'bookmark_manager_test')
 
       visit '/'
       click_link 'Bookmark Page'
+      # click_link 'Add a bookmark'
       fill_in('url', with: 'https://tfl.gov.uk/')
-      fill_in('title', with: 'Transport for London')
+      fill_in('title', with: 'TFL')
       click_button 'Add Bookmark'
-      expect(page).to have_link('Transport for London', href: 'https://tfl.gov.uk/')
+      expect(page).to have_link('TFL', href: 'https://tfl.gov.uk/')
 
     end
   end
 
-  # feature '.delete_bookmark' do
-  #   scenario "Deletes websites to the bookmarks database" do
-  #
-  #     connection = PG.connect(dbname: 'bookmark_manager_test')
-  #
-  #     visit '/'
-  #     click_link 'Bookmark Page'
-  #     fill_in('url', with: 'https://tfl.gov.uk/')
-  #     click_button 'Add Bookmark'
-  #     fill_in('del_url', with: 'https://tfl.gov.uk/')
-  #     click_button 'Delete Bookmark'
-  #     expect(page).not_to have_content('https://tfl.gov.uk/')
-  #   end
-  # end
-end
+  feature '.delete' do
+    scenario 'Deletes a bookmark from the bookmarks database' do
+      Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+      visit('/bookmarks')
+      expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+      click_button 'Delete'
+      expect(current_path).to eq '/bookmarks/'
+      expect(page).not_to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+    end
+  end
