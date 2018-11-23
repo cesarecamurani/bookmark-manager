@@ -5,14 +5,17 @@
     <title></title>
   </head>
   <body bgcolor="lightgreen">
-    <h1>Bookmarks:</h1>
+    <h1><font face="arial"> Bookmarks: </font></h1>
     <ul>
       <% @bookmarks.each do |bookmark| %>
       <li class="bookmark" id="bookmark-<%= bookmark.id %>">
-        <a href="<%= bookmark.url %>" target="_blank"> <%= bookmark.title %> </a>
+        <a href="<%= bookmark.url %>" target="_blank"><font face="arial"> <%= bookmark.title %> </font></a>
         <form action="/bookmarks/<%= bookmark.id %>" method="post">
           <input type='hidden' name='_method' value='DELETE'/>
           <input type="submit" value="Delete" />
+        </form>
+        <form action="/bookmarks_update/<%= bookmark.id %>" method="get">
+          <input type="submit" value="Update" />
         </form>
       </li>
       <% end %>
@@ -20,12 +23,12 @@
     <br>
 
       <form action="/bookmarks" method="post">
-        <h2><font face="century gothic"> Add URL: </font></h2>
-        <input type="text" font="century gothic" name="url">
-        <h2><font face="century gothic"> Add Title: </font></h2>
-        <input type="text" font="century gothic" name="title">
+        <h2><font face="arial"> Add URL: </font></h2>
+        <input type="text" font="arial" name="url">
+        <h2><font face="arial"> Add Title: </font></h2>
+        <input type="text" font="arial" name="title">
         <br><br>
-        <input type="submit" font="century gothic" value="Add Bookmark">
+        <input type="submit" font="arial" value="Add Bookmark">
       </form>
 
   </body>

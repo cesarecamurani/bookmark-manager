@@ -40,13 +40,17 @@ describe Bookmark do
 
   describe '.delete' do
     it 'Deletes a bookmark' do
-
       bookmark = Bookmark.create(title: 'Makers', url: 'http://www.makersacademy.com')
-
       Bookmark.delete(id: bookmark.id)
-
       expect(Bookmark.list_all.length).to eq 0
+    end
+  end
 
+  describe '.update' do
+    it 'Updates a bookmark' do
+      bookmark = Bookmark.create(title: 'Makers', url: 'http://www.makersacademy.com')
+      Bookmark.update(id: bookmark.id, title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      expect(Bookmark.list_all.first.title).to eq 'Makers Academy'
     end
   end
 

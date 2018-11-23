@@ -25,7 +25,6 @@ end
 
       visit '/'
       click_link 'Bookmark Page'
-      # click_link 'Add a bookmark'
       fill_in('url', with: 'https://tfl.gov.uk/')
       fill_in('title', with: 'TFL')
       click_button 'Add Bookmark'
@@ -40,7 +39,27 @@ end
       visit('/bookmarks')
       expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
       click_button 'Delete'
-      expect(current_path).to eq '/bookmarks/'
+      expect(current_path).to eq '/bookmarks'
       expect(page).not_to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+    end
+  end
+
+  feature '.update' do
+    scenario 'Updates a bookmark from the bookmarks database' do
+
+      bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+
+
+
+
+      visit('/bookmarks')
+      # expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+      click_button 'Update'
+      expect(bookmark.title).to eq('Makers Academy')
+      expect(bookmark.url).to eq('http://www.makersacademy.com')
+      expect(page).to have_content("Add Title:")
+      fill_in("title", with: 'Makers')
+      click_button 'Update Bookmark'
+      expect(page).to have_content("Makers")
     end
   end
