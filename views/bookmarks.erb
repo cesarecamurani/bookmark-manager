@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body bgcolor="lightgreen">
-    <h1><font face="arial"> Bookmarks: </font></h1>
+  <body bgcolor="grey">
+    <h2><font face="arial"> Bookmarks: </font></h2>
     <ul>
       <% @bookmarks.each do |bookmark| %>
       <li class="bookmark" id="bookmark-<%= bookmark.id %>">
@@ -15,21 +15,19 @@
           <input type="submit" value="Delete" />
         </form>
         <form action="/bookmarks_update/<%= bookmark.id %>" method="get">
-          <input type="submit" value="Update" />
+          <input type="submit" value="Find" />
         </form>
       </li>
       <% end %>
     </ul>
-    <br>
-
       <form action="/bookmarks" method="post">
-        <h2><font face="arial"> Add URL: </font></h2>
+        <h3><font face="arial"> Add URL: </font></h3>
         <input type="text" font="arial" name="url">
-        <h2><font face="arial"> Add Title: </font></h2>
+        <h3><font face="arial"> Add Title: </font></h3>
         <input type="text" font="arial" name="title">
         <br><br>
         <input type="submit" font="arial" value="Add Bookmark">
       </form>
-
-  </body>
+      <p> <%= flash[:notice] %> </p>
+    </body>
 </html>

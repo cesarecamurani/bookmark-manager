@@ -35,6 +35,11 @@ describe Bookmark do
       expect(bookmark_bis.url).to eq("https://www.chess.com/it/learn")
       expect(bookmark_bis.title).to eq ("Chess.com")
     end
+
+    it 'Does not add a new bookmark if the URL is not valid' do
+      bookmark = Bookmark.create(url: 'not a real bookmark', title: 'not a real bookmark')
+      expect(bookmark).not_to be_a Bookmark
+    end
   end
 
   describe '.delete' do

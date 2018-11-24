@@ -22,8 +22,9 @@ class Bookmark
   end
 
   def self.create(title:, url:)
-    result = DatabaseConnection.query("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
-    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+    return false unless is_url?(url)
+    bookmark = DatabaseConnection.query("INSERT INTO bookmarks (url, title) VALUES('#{url}', '#{title}') RETURNING id, title, url;")
+    Bookmark.new(id: bookmark[0]['id'], title: bookmark[0]['title'], url: bookmark[0]['url'])
   end
 
   def self.delete(id:)
@@ -31,11 +32,12 @@ class Bookmark
   end
 
   def self.find(id:)
-    result = DatabaseConnection.query("SELECT * FROM bookmarks WHERE id = #{id}")
-    Bookmark.new(id: result[0]['id'], title: result[0]['title'], url: result[0]['url'])
+    bookmark = DatabaseConnection.query("SELECT * FROM bookmarks WHERE id = #{id}")
+    Bookmark.new(id: bookmark[0]['id'], title: bookmark[0]['title'], url: bookmark[0]['url'])
   end
 
   def self.update(id:, title:, url:)
+    return false unless is_url?(url)
     if title == '' && url == ''
       return
     elsif title == ''
@@ -47,4 +49,9 @@ class Bookmark
     end
   end
 
+  private
+
+  def self.is_url?(url)
+    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+  end
 end

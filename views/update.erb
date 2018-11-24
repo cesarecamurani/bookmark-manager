@@ -4,17 +4,18 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body bgcolor="lightgreen">
-    <h2><font face="arial"> Current URL: <h3><%= @bookmark.url %></h3></font></h2>
-    <h2><font face="arial"> Current Title: <h3><%= @bookmark.title %></h3></font></h2>
+  <body bgcolor="grey">
+    <h3><font face="arial"> Current URL: <%= @bookmark.url %> </font></h3>
+    <h3><font face="arial"> Current Title: <%= @bookmark.title %> </font></h3><br><br>
     <form action="/bookmarks_update/<%= @bookmark.id %>" method="post">
       <input type='hidden' name='_method' value='PATCH'/>
-      <h2><font face="arial"> Enter new URL: </font></h2>
+      <h3><font face="arial"> Enter new URL: </font></h3>
       <input type="text" font="arial" name="url">
-      <h2><font face="arial"> Enter new Title: </font></h2>
+      <h3><font face="arial"> Enter new Title: </font></h3>
       <input type="text" font="arial" name="title">
       <br><br>
       <input type="submit" font="arial" value="Update Bookmark">
     </form>
+    <p> <%= flash[:notice] %> </p>
   </body>
 </html>
