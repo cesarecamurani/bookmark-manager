@@ -9,9 +9,9 @@
     <h2><font face="arial"> Current Title: <h3><%= @bookmark.title %></h3></font></h2>
     <form action="/bookmarks_update/<%= @bookmark.id %>" method="post">
       <input type='hidden' name='_method' value='PATCH'/>
-      <h2><font face="arial"> Add URL: </font></h2>
+      <h2><font face="arial"> Enter new URL: </font></h2>
       <input type="text" font="arial" name="url">
-      <h2><font face="arial"> Add Title: </font></h2>
+      <h2><font face="arial"> Enter new Title: </font></h2>
       <input type="text" font="arial" name="title">
       <br><br>
       <input type="submit" font="arial" value="Update Bookmark">

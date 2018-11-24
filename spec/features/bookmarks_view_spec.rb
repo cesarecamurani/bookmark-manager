@@ -49,15 +49,11 @@ end
 
       bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
 
-
-
-
       visit('/bookmarks')
-      # expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
       click_button 'Update'
       expect(bookmark.title).to eq('Makers Academy')
       expect(bookmark.url).to eq('http://www.makersacademy.com')
-      expect(page).to have_content("Add Title:")
+      expect(page).to have_content("Enter new Title:")
       fill_in("title", with: 'Makers')
       click_button 'Update Bookmark'
       expect(page).to have_content("Makers")

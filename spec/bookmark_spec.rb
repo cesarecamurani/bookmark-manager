@@ -14,7 +14,6 @@ describe Bookmark do
       Bookmark.create(url: "https://www.visitfaroeislands.com", title: "Visit Faroe")
       Bookmark.create(url: "https://store.steampowered.com", title: "Steam")
 
-
       bookmarks = Bookmark.list_all
 
       expect(bookmarks.length).to eq 4

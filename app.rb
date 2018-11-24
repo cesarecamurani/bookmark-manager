@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './lib/bookmark'
+require './database_connection_setup'
 require 'pg'
 
 class Controller < Sinatra::Base
