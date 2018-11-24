@@ -1,38 +1,34 @@
 # Bookmark Manager App
 
-## User Stories
- 
- ```
- As a time-pressed user
- So that I can quickly go to web sites I regularly visit
- I would like to see a list of bookmarks
- ```
- 
- ```
- As a user
- So I can store bookmark data for later retrieval
- I want to add a bookmark to Bookmark Manager
- ```
- 
- ```
- As a user
- So that I can keep my bookmarks relevant
- I want to delete a bookmark
- ```
- 
- ```
+# User Stories:
+
  As a user
  So that I can keep my bookmarks up to date
-I want to edit a bookmark
-```
+ I want to edit a bookmark
  ```
-As a user
-So that the bookmarks I save are useful
-I want to only save a valid URL
-```
- ## Domain Model
- ![Bookmark Manager domain model](./public/images/bookmark_manager_13.png)
  
+ ```
+ As a user
+ So that the bookmarks I save are useful
+ I want to only save a valid URL
+ ```
+ 
+ ```
+ As a user
+ So that I can make interesting notes
+ I want to add a Comment to a Bookmark
+ ```
+ 
+ ```
+ As a user
+ So that I can categorize my bookmarks
+ I want to add a Tag to a Bookmark
+ ```
+ ```
+ As a user
+ So that I can find relevant bookmarks
+ I want to filter Bookmarks by a Tag
+ ```
  
  ## How to use
  

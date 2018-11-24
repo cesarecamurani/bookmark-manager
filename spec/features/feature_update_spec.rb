@@ -6,7 +6,7 @@ feature '.update' do
     click_button 'Find'
     expect(bookmark.title).to eq('Makers Academy')
     expect(bookmark.url).to eq('http://www.makersacademy.com')
-    expect(page).to have_content("Enter new Title:")
+    expect(page).to have_content("Enter Title:")
     fill_in("title", with: 'Makers')
     click_button 'Update Bookmark'
     expect(page).to have_content("Makers")

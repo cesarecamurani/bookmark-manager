@@ -20,14 +20,35 @@
         <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
         <input type="submit" value="Add Comment" />
       </form>
-      <ul>
-        <% bookmark.comments.each do |comment| %>
-          <li><%= comment.text %></li>
-        <% end %>
-      </ul>
+      <form action="/bookmarks/<%= bookmark.id %>/tags/new" method="get">
+        <input type="submit" value="Add Tag" />
+      </form>
+      <div>
+        <h3>Comments:</h3>
+        <ul>
+          <% bookmark.comments.each do |comment| %>
+            <li><%= comment.text %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% if bookmark.tags.length > 0 %>
+        <div>
+          <h2>Tags</h2>
+          <ul>
+            <% bookmark.tags.each do |tag| %>
+              <li>
+                <a href="/tags/<%= tag.id %>/bookmarks">
+                  <%= tag.content %>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       </li>
       <% end %>
     </ul>
+      <h2><font face="arial"><%= flash[:notice] %> </font></h2>
       <form action="/bookmarks" method="post">
         <h3><font face="arial"> Add URL: </font></h3>
         <input type="text" font="arial" name="url">
@@ -36,6 +57,5 @@
         <br><br>
         <input type="submit" font="arial" value="Add Bookmark">
       </form>
-      <p> <%= flash[:notice] %> </p>
     </body>
 </html>

@@ -1,7 +1,6 @@
 require 'comment'
 require 'bookmark'
 
-
 describe Comment do
 
   describe '.create' do

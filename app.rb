@@ -4,6 +4,8 @@ require 'sinatra/base'
 require 'sinatra/flash'
 require './lib/bookmark'
 require './lib/comment'
+require './lib/tag'
+require './lib/bookmark_tag'
 require './database_connection_setup'
 
 
@@ -48,6 +50,22 @@ class Controller < Sinatra::Base
   post '/bookmarks/:id/comments' do
     Comment.create(bookmark_id: params[:id], text: params[:comment])
     redirect '/bookmarks'
+  end
+
+  get '/bookmarks/:id/tags/new' do
+    @bookmark_id = params[:id]
+    erb :'/tags/new'
+  end
+
+  post '/bookmarks/:id/tags' do
+    tag = Tag.create(content: params[:tag])
+    BookmarkTag.create(bookmark_id: params[:id], tag_id: tag.id)
+    redirect '/bookmarks'
+  end
+
+  get '/tags/:id/bookmarks' do
+    @tag = Tag.find(id: params['id'])
+    erb :'tags/index'
   end
 
 
