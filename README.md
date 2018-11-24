@@ -1,7 +1,8 @@
-# Bookmark Manager App
+ # Bookmark Manager App
 
-# User Stories:
+ # User Stories:
 
+ ```
  As a user
  So that I can keep my bookmarks up to date
  I want to edit a bookmark
@@ -29,14 +30,12 @@
  So that I can find relevant bookmarks
  I want to filter Bookmarks by a Tag
  ```
-<<<<<<< HEAD
-=======
-As a user
-So that the bookmarks I save are useful
-I want to only save a valid URL
-```
->>>>>>> 8dabcd2a467dd0d5e8389164d2068834b56f6bf7
- 
+ ```
+ As a user
+ So that the bookmarks I save are useful
+ I want to only save a valid URL
+ ```
+
  ## How to use
  
  ### To set up the project
@@ -56,7 +55,7 @@ I want to only save a valid URL
  CREATE DATABASE bookmark_manager_test;
  ```
  
- To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in the given order.
+ To set up the appropriate tables, connect to each database in `psql` and run the SQL scripts in the `db/migrations` folder in  the given order.
  
  ### To run the Bookmark Manager app:
  
