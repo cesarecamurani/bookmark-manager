@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body bgcolor="grey">
+  <body bgcolor="lightgreen">
     <h2><font face="arial"> Bookmarks: </font></h2>
     <ul>
       <% @bookmarks.each do |bookmark| %>
@@ -17,6 +17,14 @@
         <form action="/bookmarks_update/<%= bookmark.id %>" method="get">
           <input type="submit" value="Find" />
         </form>
+        <form action="/bookmarks/<%= bookmark.id %>/comments/new" method="get">
+        <input type="submit" value="Add Comment" />
+      </form>
+      <ul>
+        <% bookmark.comments.each do |comment| %>
+          <li><%= comment.text %></li>
+        <% end %>
+      </ul>
       </li>
       <% end %>
     </ul>

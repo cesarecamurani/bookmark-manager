@@ -19,6 +19,6 @@ feature '.update' do
     fill_in('url', with: 'not a real bookmark')
     click_button('Update Bookmark')
     expect(page).not_to have_content "not a real bookmark"
-    expect(page).to have_content "You must submit a valid URL."
+    expect(page).to have_content "Please submit a valid URL."
   end
 end

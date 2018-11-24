@@ -5,6 +5,7 @@
         1,
         null,
         1,
+        2,
         null,
         2,
         null,
@@ -62,6 +63,47 @@
         null,
         null,
         null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/cesarecamurani/Desktop/@Makers/Week4_Projects/bookmark-manager/spec/comment_spec.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/cesarecamurani/Desktop/@Makers/Week4_Projects/bookmark-manager/spec/database_connection_spec.rb": [
@@ -81,6 +123,23 @@
         1,
         1,
         null,
+        null,
+        null,
+        null
+      ],
+      "/Users/cesarecamurani/Desktop/@Makers/Week4_Projects/bookmark-manager/spec/features/feature_add_view_comments_spec.rb": [
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         null,
         null,
         null
@@ -167,6 +226,6 @@
         null
       ]
     },
-    "timestamp": 1543075922
+    "timestamp": 1543080979
   }
 }

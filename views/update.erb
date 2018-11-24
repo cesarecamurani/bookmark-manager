@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body bgcolor="grey">
+  <body bgcolor="lightgreen">
     <h3><font face="arial"> Current URL: <%= @bookmark.url %> </font></h3>
     <h3><font face="arial"> Current Title: <%= @bookmark.title %> </font></h3><br><br>
     <form action="/bookmarks_update/<%= @bookmark.id %>" method="post">
-      <input type='hidden' name='_method' value='PATCH'/>
+      <input type='hidden' name='_method' value='Patch'/>
       <h3><font face="arial"> Enter new URL: </font></h3>
       <input type="text" font="arial" name="url">
       <h3><font face="arial"> Enter new Title: </font></h3>

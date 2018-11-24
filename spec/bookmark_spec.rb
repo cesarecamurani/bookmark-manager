@@ -1,6 +1,7 @@
 require 'bookmark'
 
 describe Bookmark do
+  let(:comment_class) { double(:comment_class) }
 
   it { expect(described_class).to respond_to :list_all }
 
@@ -55,6 +56,14 @@ describe Bookmark do
       bookmark = Bookmark.create(title: 'Makers', url: 'http://www.makersacademy.com')
       Bookmark.update(id: bookmark.id, title: 'Makers Academy', url: 'http://www.makersacademy.com')
       expect(Bookmark.list_all.first.title).to eq 'Makers Academy'
+    end
+  end
+
+  describe '#comments' do
+    it 'calls .where on the Comment class' do
+      bookmark = Bookmark.create(title: 'Makers Academy', url: 'http://www.makersacademy.com')
+      expect(comment_class).to receive(:where).with(bookmark_id: bookmark.id)
+      bookmark.comments(comment_class)
     end
   end
 

@@ -1,5 +1,6 @@
 require 'pg'
 require_relative 'database_connection'
+require_relative 'comment'
 
 class Bookmark
   attr_reader :id, :url, :title
@@ -49,9 +50,14 @@ class Bookmark
     end
   end
 
+  def comments(comment_class = Comment)
+    comment_class.where(bookmark_id: id)
+  end
+
+
   private
 
   def self.is_url?(url)
-    url =~ /\A#{URI::regexp(['http', 'https'])}\z/
+    url =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]
   end
 end
