@@ -5,6 +5,12 @@
     <title></title>
   </head>
   <body bgcolor="lightgreen">
+    <% if @user %>
+      <h1><font face="arial"> Welcome, <%= @user.email %> </font></h1>
+    <% end %>
+    <form action="/sessions/destroy" method="post">
+      <input type="submit" value="Sign out" />
+    </form>
     <h2><font face="arial"> Bookmarks: </font></h2>
     <ul>
       <% @bookmarks.each do |bookmark| %>
@@ -23,6 +29,7 @@
       <form action="/bookmarks/<%= bookmark.id %>/tags/new" method="get">
         <input type="submit" value="Add Tag" />
       </form>
+      <% if bookmark.comments.length > 0 %>
       <div>
         <h3>Comments:</h3>
         <ul>
@@ -31,6 +38,7 @@
           <% end %>
         </ul>
       </div>
+      <% end %>
       <% if bookmark.tags.length > 0 %>
         <div>
           <h2>Tags</h2>

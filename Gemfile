@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
+gem 'bcrypt'
 
 group :test do
   gem 'capybara'

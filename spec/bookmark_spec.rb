@@ -1,4 +1,6 @@
+require 'tag'
 require 'bookmark'
+require 'bookmark_tag'
 
 describe Bookmark do
   let(:comment_class) { double(:comment_class) }

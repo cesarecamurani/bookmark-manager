@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body bgcolor="lightgreen">
+    <br><br>
+    <center>
+    <h2><font face="arial"> <%= flash[:notice] %> </font></h2>
+    <font face="arial"> Please enter your details: </font><br><br>
+    <form action="/sessions" method="post">
+      <input type="email" name="email" placeholder="Email"/><br><br>
+      <input type="password" name="password" placeholder="Password"/><br><br>
+      <input type="submit" value="Sign in"/>
+    </form>
+    </center>
+  </body>
+</html>
