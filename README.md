@@ -25,17 +25,25 @@
  So that I can categorize my bookmarks
  I want to add a Tag to a Bookmark
  ```
+ 
  ```
  As a user
  So that I can find relevant bookmarks
  I want to filter Bookmarks by a Tag
  ```
+ 
  ```
  As a user
- So that the bookmarks I save are useful
- I want to only save a valid URL
+ So that I can have a personalised bookmark list
+ I want to sign up with my email address
  ```
-
+ 
+ ```
+ As a user
+ So that I can keep my account secure
+ I want to sign in with my email and password
+ ```
+ 
  ## How to use
  
  ### To set up the project
